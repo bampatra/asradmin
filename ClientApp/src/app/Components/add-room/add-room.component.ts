@@ -17,6 +17,10 @@ export class AddRoomComponent implements OnInit {
   constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _employeeService: RoomService,
     private _router: Router)
   {
+    if(this._avRoute.snapshot.params["id"])
+    {
+      this.roomID = this._avRoute.snapshot.params["id"];
+    }
    
     this.roomForm = this._fb.group({
       roomID: ["", [Validators.required]]

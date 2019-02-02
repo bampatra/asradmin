@@ -18,6 +18,7 @@
     <td>{{ room.roomID }}</td>
     <td>
     <td>
+      <a [routerLink]="['/room/edit/', room.roomID]">Edit</a> | 
       <a [routerLink]="" (click)="delete(room.roomID)">Delete</a>
     </td>
   </tr>

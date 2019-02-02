@@ -44,6 +44,7 @@ import { FetchSlotComponent } from './Components/fetch-slot/fetch-slot.component
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'fetch-room', component: FetchRoomComponent },
       { path: 'add-room', component: AddRoomComponent },
+      { path: "room/edit/:id", component: AddRoomComponent },
       { path: 'fetch-slot', component: FetchSlotComponent },
     ])
   ],
