@@ -1,0 +1,34 @@
+<h1>{{title}}</h1>
+<h3>Room</h3>
+<hr />
+
+<form [formGroup]="slotForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+  <div class="form-group row">
+    <label class=" control-label col-md-12" for="Name">Name</label>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="roomID" disabled> </div>
+    <input class="form-control" type="hidden" value=null formControlName="room">
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12" for="Time">Time</label>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="startTime" disabled> </div>
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12" for="Staff">Staff ID</label>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="staffID" disabled> </div>
+    <input class="form-control" type="hidden" value=null formControlName="staff">
+  </div>
+
+  <div class="form-group row">
+    <label class=" control-label col-md-12" for="Student">Student ID</label>
+    <div class="col-md-4"> <input class="form-control" type="text" formControlName="studentID"> </div>
+    <input class="form-control" type="hidden" value=null formControlName="student">
+  </div>
+  
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-default">Save</button>
+    <button class="btn" (click)="cancel()">Cancel</button>
+  </div>
+</form>

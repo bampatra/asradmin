@@ -16,13 +16,12 @@ export class RoomService {
 
   getRooms()
   {
-    return this._http.get(this.myAppUrl + "api/room/index").map((response: Response) => response.json())
-      .catch(this.errorHandler);
+    return this._http.get(this.myAppUrl + "api/Room/index").map(res => res.json()).catch(this.errorHandler);
   }
 
   getRoomById(id: string)
   {
-    return this._http.get(this.myAppUrl + "api/room/Details/" + id).map((response: Response) => response.json())
+    return this._http.get(this.myAppUrl + "api/Room/Details/" + id).map((response: Response) => response.json())
       .catch(this.errorHandler);
   }
 

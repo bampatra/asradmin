@@ -9,12 +9,12 @@ namespace ASRadmin.Models
     {
         private readonly AsrContext db = new AsrContext();
 
-        public IEnumerable<Room> GetAllRooms()
+        public List<Room> GetAllRooms()
         {
             return db.Room.ToList();
         }
 
-        // To Add new employee record.
+        // To Add new room record.
         public int AddRoom(Room room)
         {
             db.Room.Add(room);
@@ -22,14 +22,14 @@ namespace ASRadmin.Models
             return 1;
         }
 
-        // Get the details of a particular employee.
+        // Get the details of a particular room.
         public Room GetRoomData(string id)
         {
             var room = db.Room.Find(id);
             return room;
         }
 
-        // To Update the records of a particular employee.
+        // To Update the records of a particular room.
         public int UpdateRoom(Room room)
         {
             db.Entry(room).State = EntityState.Modified;
@@ -37,7 +37,7 @@ namespace ASRadmin.Models
             return 1;
         }
 
-        // To Delete the record of a particular employee.
+        // To Delete the record of a particular room.
         public int DeleteRoom(string RoomID)
         {
             var emp = db.Room.Find(RoomID);

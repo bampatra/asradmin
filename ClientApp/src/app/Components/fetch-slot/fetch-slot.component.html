@@ -14,15 +14,17 @@
     </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let slot of slotList">
-    <td>{{ slot.roomID }}</td>
-    <td>{{ slot.startTime }}</td>
-    <td>{{ slot.staffID }}</td>
-    <td>{{ slot.studentID }}</td>
-    <td>
-    <td>
-      <a [routerLink]="" (click)="delete(room.RoomID)">Delete</a>
-    </td>
-  </tr>
+    <tr *ngFor="let slot of slotList">
+      <td>{{ slot.roomID }}</td>
+      <td>{{ slot.startTime }}</td>
+      <td>{{ slot.staffID }}</td>
+      <td>{{ slot.studentID }}</td>
+      <td>
+      <td>
+        <a [routerLink]="['/slot/edit/', slot.roomID, slot.startTime]">Edit</a>
+        <a *ngIf="!slot.studentID" [routerLink]="" (click)="delete(slot.roomID, slot.startTime)"> | Delete</a>
+        <a *ngIf="slot.studentID" [routerLink]="" (click)="cancelBooking(slot.roomID, slot.startTime)"> | Cancel Booking </a>
+      </td>
+    </tr>
   </tbody>
 </table>
