@@ -32,7 +32,7 @@ namespace ASRadmin.Models
         // To Update the records of a particular room.
         public int UpdateRoom(Room room)
         {
-            db.Entry(room).State = EntityState.Modified;
+            db.Room.Update(room);
             db.SaveChanges();
             return 1;
         }

@@ -20,6 +20,18 @@ export class SlotService {
       .catch(this.errorHandler);
   }
 
+  getSlotsByStaff(id: string)
+  {
+    return this._http.get(this.myAppUrl + "api/slot/bystaff/" + id).map((response: Response) => response.json())
+      .catch(this.errorHandler);
+  }
+
+  getSlotsByStudent(id: string)
+  {
+    return this._http.get(this.myAppUrl + "api/slot/bystudent/" + id).map((response: Response) => response.json())
+      .catch(this.errorHandler);
+  }
+
   getSlotById(id: string, time: Date)
   {
     return this._http.get(this.myAppUrl + "api/slot/Details/" + id + "/" + time).map((response: Response) => response.json())

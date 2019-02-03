@@ -21,9 +21,13 @@
   </div>
 
   <div class="form-group row">
-    <label class=" control-label col-md-12" for="Student">Student ID</label>
-    <div class="col-md-4"> <input class="form-control" type="text" formControlName="studentID"> </div>
-    <input class="form-control" type="hidden" value=null formControlName="student">
+    <label class="control-label col-md-12" for="Student">Student</label>
+    <div class="col-md-4">
+      <select class="form-control" data-val="true" formControlName="studentID">
+        <option value="">--Select Student--</option>
+        <option *ngFor="let student of studentList" value={{student.studentID}}>{{student.studentID}} - {{student.name}}</option>
+      </select>
+    </div>
   </div>
   
 

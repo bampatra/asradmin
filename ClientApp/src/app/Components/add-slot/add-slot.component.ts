@@ -16,12 +16,10 @@ export class AddSlotComponent implements OnInit {
   roomId: string;
   time: Date;
   errorMessage: any;
-  roomList: Array<any> = [];
-  staffList: Array<any> = [];
-  studentList: Array<any> = [];
+  studentList: StudentData[];
 
   constructor(private _fb: FormBuilder, private _avRoute: ActivatedRoute, private _employeeService: SlotService,
-    private _router: Router)
+    private _userService: UserService, private _router: Router)
   {
 
     if(this._avRoute.snapshot.params["id"])
@@ -44,9 +42,7 @@ export class AddSlotComponent implements OnInit {
 
   ngOnInit()
   {
-    /** this._roomService.getRooms().subscribe(data => this.roomList = data);
-    this._userService.getStaffs().subscribe(data => this.staffList = data);
-    this._userService.getStudents().subscribe(data => this.studentList = data); */
+    this._userService.getStudents().subscribe(data => this.studentList = data);
 
     if(this.roomId != null)
     {
@@ -99,6 +95,8 @@ export class AddSlotComponent implements OnInit {
 
 }
 
-interface RoomList {
-    roomID: string;
+interface StudentData {
+  studentID: string;
+  name: string;
+  email: string;
 }

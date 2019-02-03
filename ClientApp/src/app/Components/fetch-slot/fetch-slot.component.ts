@@ -12,16 +12,18 @@ import { UserService } from "../../Services/user.service";
 export class FetchSlotComponent {
   slotList: SlotData[];
   staffList: StaffData[];
+  studentList: StudentData[];
 
   constructor(public http: Http, private _router: Router, private _slotService: SlotService, private _userService: UserService)
   {
-    this.getSlots();
+      this.getSlots();
+      this._userService.getStaffs().subscribe(data => this.staffList = data);
+      this._userService.getStudents().subscribe(data => this.studentList = data);
   }
 
   getSlots()
   {
       this._slotService.getSlots().subscribe(data => this.slotList = data);
-      this._userService.getStaffs().subscribe(data => this.staffList = data);
   }
 
   delete(roomID, time)
@@ -50,6 +52,16 @@ export class FetchSlotComponent {
 
       }
     }
+
+    slotByStaff(id)
+    {
+        this._slotService.getSlotsByStaff(id).subscribe(data => this.slotList = data);
+    }
+
+    slotByStudent(id)
+    {
+        this._slotService.getSlotsByStudent(id).subscribe(data => this.slotList = data);
+    }
   
 }
 
@@ -62,6 +74,12 @@ interface SlotData {
 
 interface StaffData {
   staffID: string;
+  name: string;
+  email: string;
+}
+
+interface StudentData {
+  studentID: string;
   name: string;
   email: string;
 }
